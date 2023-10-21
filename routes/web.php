@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\HomeComtroller;
+use App\Http\Controllers\ShopComtroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +17,14 @@ use App\Http\Controllers\admin\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('product', ProductController::class);
+Route::get('/', [HomeComtroller::class, 'index']);
+Route::get('/shop', [ShopComtroller::class, 'index'])->name('shop');
 
 // Admin routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'authadmin'])->group(function () {
+    Route::resource('product', ProductController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('home-setting', HomeController::class);
     Route::get('dashboard', function () {
         return view('admin/dashboard');
     })->name('dashboard');

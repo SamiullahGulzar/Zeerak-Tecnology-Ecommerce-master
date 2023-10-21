@@ -54,8 +54,8 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                Zay
+            <a class="navbar-brand text-success logo h2 align-self-center" href="index.html">
+                ZEERAK TECH
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,16 +66,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="{{ route('shop') }}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
@@ -99,13 +99,13 @@
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
                     <div class="nav-icon position-relative text-decoration-none">
+                        @auth
+                        <a class="fs-6" href="{{ route('dashboard') }}">Dashboard</a>
+                        @else 
                         <a class="fs-6" href="{{ route('login') }}">Login</a> /
                         <a class="fs-6" href="{{ route('register') }}">Register</a>
+                        @endauth
                     </div>
-                    <!-- <a class="" href="{{ route('login') }}">
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    </a> -->
                 </div>
             </div>
 
@@ -228,11 +228,11 @@
     <!-- End Footer -->
 
     <!-- Start Script -->
-    <script src="{{ asset('assets/js/jquery-1.11.0.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/templatemo.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets_website/js/jquery-1.11.0.min.js') }}"></script>
+    <script src="{{ asset('assets_website/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets_website/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets_website/js/templatemo.js') }}"></script>
+    <script src="{{ asset('assets_website/js/custom.js') }}"></script>
     <!-- End Script -->
 
     @livewireScripts

@@ -27,6 +27,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="{{ asset('asset_admin/css/custom.css') }}">
+
+    @yield('styles')
     <!-- Styles -->
     @livewireStyles
   </head>
@@ -99,7 +101,11 @@
                           <li><a href="dashboard-v2.html">Dashboard v.2</a></li>
                       </ul>
                     </li>
+                    <li class="ripple"><a href="{{ route('category.index') }}"><span class="fa fa-calendar-o"></span>Category</a></li>
                     <li class="ripple"><a href="{{ route('product.index') }}"><span class="fa fa-calendar-o"></span>Products</a></li>
+                    <li class="ripple"><a href="{{ route('home-setting.create') }}"><span class="fa fa-calendar-o"></span>Home Slider</a></li>
+                    <li class="ripple"><a href="{{ route('home-setting.create') }}"><span class="fa fa-calendar-o"></span>Home Slider</a></li>
+                    
                     <li class="ripple"><a href="calendar.html"><span class="fa fa-calendar-o"></span>Calendar</a></li>
                   </ul>
                 </div>
@@ -1027,6 +1033,8 @@
     <!-- end: Javascript -->
 
     @stack('modals')
+    
+    @yield('scripts')
 
     @livewireScripts
   </body>
