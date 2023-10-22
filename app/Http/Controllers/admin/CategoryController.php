@@ -12,7 +12,7 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   // this is comment
         $categories = Category::all();
         return view('admin.category.categories', ['categories'=> $categories]);
     }
